@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour 
+public class Test : MonoBehaviour
 {
+
+    
 
     public class Boss
     {
@@ -29,21 +31,24 @@ public class Test : MonoBehaviour
          //魔法攻撃用の関数
         public void Magic(int ump)
         {
-            for (mp = 53; mp >= 0; mp -= ump)
+            mp -= ump;
+            if (mp >= 0)
             {
-             Debug.Log("魔法攻撃をした。残りMPは" + mp);       
+                Debug.Log("魔法攻撃をした。残りMPは" + mp);
             }
-             Debug.Log("MPが足りないため魔法が使えない。");
-
+            else
+            {
+                Debug.Log("MPが足りないため魔法が使えない。");
+            }
         }
 
         
     }
 
-
-
     void Start()
     {
+        
+
         Boss lastboss = new Boss();
 
         // 攻撃用の関数を呼び出す
@@ -51,8 +56,10 @@ public class Test : MonoBehaviour
         // 防御用の関数を呼び出す
         lastboss.Defence(3);
         // 魔法用の関数を呼び出す     
-        lastboss.Magic(5);
-        
+        for (int i=1; i<=11;i++)
+        {
+            lastboss.Magic(5);
+        }
     }
 
 
