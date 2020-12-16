@@ -29,17 +29,18 @@ public class Test : MonoBehaviour
         
 
          //魔法攻撃用の関数
-        public void Magic(int ump)
+        public void Magic(int used_mp)
         {
-            mp -= ump;
-            if (mp >= 0)
+            if (mp>=used_mp)
             {
+                mp -= used_mp;
                 Debug.Log("魔法攻撃をした。残りMPは" + mp);
             }
             else
             {
                 Debug.Log("MPが足りないため魔法が使えない。");
             }
+            
         }
 
         
